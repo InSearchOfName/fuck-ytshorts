@@ -2,17 +2,31 @@
   "manifest_version": 2,
   "name": "Fuck-Ytshorts",
   "version": "1.0",
-
   "description": "Removes the youtube slop section also known as youtube shorts.",
 
   "icons": {
     "48": "icons/image.png"
   },
 
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "fuck-ytshorts@local",
+      "strict_min_version": "109.0",
+      "data_collection_permissions": {
+        "required": [],
+        "optional": [],
+        "default": []
+      }
+    }
+  },
+
   "content_scripts": [
     {
       "matches": ["*://*.youtube.com/*"],
-      "js": ["ytslop.js"]
+      "js": ["ytslop.js"],
+      "run_at": "document_idle"
     }
   ]
 }
+
+
